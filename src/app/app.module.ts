@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { FirstComponentComponent } from './components/first-component/first-component/first-component.component';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    FirstComponentComponent
+    FirstComponentComponent,
+
   ],
   imports: [
     BrowserModule,
