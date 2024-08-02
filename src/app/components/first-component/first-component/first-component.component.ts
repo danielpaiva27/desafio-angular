@@ -1,3 +1,4 @@
+import { getLocaleCurrencySymbol } from '@angular/common';
 import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
@@ -7,6 +8,8 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class FirstComponentComponent implements OnInit{
 
+  userName:string = ''
+  password: string = ''
 
 
 
@@ -14,6 +17,16 @@ export class FirstComponentComponent implements OnInit{
 
   ngOnInit(): void{
 
+
+
   }
+  onSubmit(): void {
+    console.log(this.userName, this.password)
+
+
+
+  }
+
 }
+
 
