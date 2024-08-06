@@ -10,6 +10,7 @@ export class userService {
   constructor(private http: HttpClient) { }
 
   getUserDatas(): Observable<any> {
+
     return this.http.get(
       `https://fakestoreapi.com/users`,
       {}

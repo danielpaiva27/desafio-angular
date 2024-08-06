@@ -5,12 +5,13 @@
   <h4 class="typeTextOne">user</h4>
 
   <div class="datas">
-    <form #form = 'ngForm' (submit)="onSubmit()">
+    <form #form = 'ngForm' (submit)="onSubmit()" >
       <input type="text"
       name="usuario"
       [(ngModel)]="userName"/><h4 class="typeTextTwo">senha</h4>
       <input type="text"
       name="password" [(ngModel)]="password"/>
+      <button (click)="onSubmit()" class="typeButtonOne" routerLink="/store">Entrar</button>
     </form>
 
 
@@ -19,7 +20,9 @@
 
 
   </div>
-  <button (click)="onSubmit()" class="typeButtonOne" routerLink="/store">Entrar</button>
+
+
+
   <p class="typeThree">Não tem conta?<a class="link" routerLink="/sigin">cadastre-se</a></p>
 </div>
 
