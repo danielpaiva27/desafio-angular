@@ -17,5 +17,13 @@ export class userService {
     );
   }
 
+  verifyUser(userName:string, password:string): Observable<any> {
+    return this.http.post(
+      `https://fakestoreapi.com/auth/login`,
+      { username: userName,
+        password: password}
+    )
+  }
+
 
 }

@@ -1,7 +1,10 @@
+import { RouterLink, RouterModule } from '@angular/router';
 import { user } from './../../../user';
 import { userService } from './../../../services/user.service';
 import { getLocaleCurrencySymbol,} from '@angular/common';
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core';
+import { Token } from '@angular/compiler';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-first-component',
@@ -10,14 +13,13 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class FirstComponentComponent implements OnInit{
   user!:user[]
-
   userName:string = ''
   password: string = ''
 
 
 
 
-  constructor(private userService: userService) {}
+  constructor(private userService: userService, ) {}
 
   ngOnInit(): void{
 
@@ -36,8 +38,43 @@ export class FirstComponentComponent implements OnInit{
 
   }
 
+  verifyUser(){
+    this.userService.verifyUser(this.userName, this.password)
+    .subscribe({
+      next: (response) => {
+        response && (this.verifyUser = response);
+        console.log(this.verifyUser);
+
+
+
+
+      },
+      error: (error) => alert(error),
+
+
+
+
+
+
+})
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
   onSubmit(): void {
-    this.getUserdatas();
+    this.verifyUser();
+
+
 
 
 
