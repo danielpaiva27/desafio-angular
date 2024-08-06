@@ -1,4 +1,6 @@
-import { getLocaleCurrencySymbol } from '@angular/common';
+import { user } from './../../../user';
+import { userService } from './../../../services/user.service';
+import { getLocaleCurrencySymbol,} from '@angular/common';
 import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
@@ -7,28 +9,47 @@ import { Component, OnInit, Input} from '@angular/core';
   styleUrls: ['./first-component.component.scss']
 })
 export class FirstComponentComponent implements OnInit{
+  user!:user[]
 
   userName:string = ''
   password: string = ''
 
 
 
-  constructor() {}
+
+  constructor(private userService: userService) {}
 
   ngOnInit(): void{
 
 
 
   }
+  getUserdatas(){
+    this.userService.getUserDatas()
+    .subscribe({
+      next: (response) => {
+        response && (this.user = response);
+        console.log(this.user)
+      }
+
+    })
+
+  }
+
   onSubmit(): void {
-    console.log(this.userName, this.password)
+    this.getUserdatas();
+
+
+
+    }
 
 
 
   }
 
 
-  }
+
+
 
 
 
