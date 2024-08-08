@@ -14,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class FirstComponentComponent implements OnInit{
   user!:user[]
   userName:string = ''
-  password: string = ''
+  passWord: string = ''
 
 
 
@@ -39,7 +39,7 @@ export class FirstComponentComponent implements OnInit{
   }
 
   verifyUser(){
-    this.userService.verifyUser(this.userName, this.password)
+    this.userService.verifyUser(this.userName, this.passWord)
     .subscribe({
       next: (response) => {
         response && (this.verifyUser = response);
@@ -49,7 +49,7 @@ export class FirstComponentComponent implements OnInit{
 
 
       },
-      error: (error) => alert(error),
+      error: (error) => console.log(error),
 
 
 

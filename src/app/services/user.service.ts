@@ -17,11 +17,41 @@ export class userService {
     );
   }
 
-  verifyUser(userName:string, password:string): Observable<any> {
+  verifyUser(userName:string, passWord:string): Observable<any> {
     return this.http.post(
       `https://fakestoreapi.com/auth/login`,
       { username: userName,
-        password: password}
+        password: passWord}
+    )
+  }
+
+  addNewUser(userName:string, passWord:string, Email:string, lastName: string, firstName:string, city:string, street:string, number:number, zipcode:string, long:string, lat:string, phone:string ): Observable<any> {
+    return this.http.post(
+      `https://fakestoreapi.com/users`,
+      {
+        username: userName,
+        password: passWord,
+        email: Email,
+        name:{
+          firstname:firstName,
+          lastname:lastName
+        },
+        address:{
+          city:city,
+          street:street,
+          number:number,
+          zipcode:zipcode,
+          geolocation:{
+            lat:lat,
+            long:long
+          }
+
+        },
+        phone:phone
+
+
+
+      }
     )
   }
 
